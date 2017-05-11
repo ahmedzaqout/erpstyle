@@ -1,0 +1,89 @@
+
+
+{% extends "templates/master.html" %}
+
+{% block content %}
+<div class="container" style="width:auto;">
+    	<div style=" background-color: #fff;     padding-top: 28px;
+    padding-left: 30px;">
+
+    <div class="row" style="margin-right: 20px;">
+    <ul class="page-breadcrumb breadcrumb">
+                         
+                        <li>
+                        <a href="/portal">{{_("الرئيسية") }}</a>
+                            
+                            <i class="fa fa-circle"></i>
+                        </li>
+                        <li>
+                            <span class="active">{{_("الرسومات") }}</span>
+                            
+                        </li>
+                    </ul>
+        
+        <div class="col-sm-3">
+            <div class="hero-widget well well-sm">
+                <div class="title">
+                    <h4>{{_("نوع الاجازة") }}</h4>
+                </div>
+                <div class="controls">
+                    <a href="/portal/chart?type=leave" class="btn btn-dark">{{_("عرض") }}</a>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-3">
+            <div class="hero-widget well well-sm">
+                <div class="title">
+                    <h4>{{_("الحضور") }}</h4>
+                </div>
+                <div class="controls">
+                    <a href="/portal/chart?type=persistence" class="btn btn-dark">{{_("عرض") }}</a>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-3">
+            <div class="hero-widget well well-sm">
+                <div class="title">
+                    <h4>{{_("الاذونات") }}</h4>
+                </div>
+                <div class="controls">
+                    <a href="/portal/chart?type=permission" class="btn btn-dark">{{_("عرض") }}</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row" style="margin-right: 20px;">
+        <div class="col-md-12">
+        <form class="form-inline" id="form">
+        {% for fillter in filters %}
+            <div class="form-group">
+                <label class="sr-only1" for="fiscal_year_name">{{ fillter['name'] }}</label>
+
+                <select name="{{ fillter['key'] }}" id="{{ fillter['key'] }}" class="form-control">
+
+                {% for value in fillter['values']%}
+                    <option value="{{ value.name }}">{{ _(value.title) or _(value.name) }}</option>
+
+                {% endfor %}
+
+                </select>
+            </div>
+        {% endfor %}
+              <button type="submit" class="btn btn-dark" id="draw-data">{{_("عرض") }}</button>
+
+        </form>
+        </div>
+        <div class="col-lg-6 col-md-6 col-sm-12">
+                    <h4>
+{{_("الاجمالى") }}
+                    </h4>
+
+            <div id="totals">
+
+            </div>
+        </div>
+    </div>
+</div>
+</div>
+
+    {%endblock%}

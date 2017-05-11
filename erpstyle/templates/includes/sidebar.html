@@ -1,0 +1,90 @@
+
+ <div class="page-sidebar-wrapper">
+                <!-- BEGIN SIDEBAR -->
+                <!-- DOC: Set data-auto-scroll="false" to disable the sidebar from auto scrolling/focusing -->
+                <!-- DOC: Change data-auto-speed="200" to adjust the sub menu slide up/down speed -->
+                <div class="page-sidebar navbar-collapse collapse">
+                    <!-- BEGIN SIDEBAR MENU -->
+                    <!-- DOC: Apply "page-sidebar-menu-light" class right after "page-sidebar-menu" to enable light sidebar menu style(without borders) -->
+                    <!-- DOC: Apply "page-sidebar-menu-hover-submenu" class right after "page-sidebar-menu" to enable hoverable(hover vs accordion) sub menu mode -->
+                    <!-- DOC: Apply "page-sidebar-menu-closed" class right after "page-sidebar-menu" to collapse("page-sidebar-closed" class must be applied to the body element) the sidebar sub menu mode -->
+                    <!-- DOC: Set data-auto-scroll="false" to disable the sidebar from auto scrolling/focusing -->
+                    <!-- DOC: Set data-keep-expand="true" to keep the submenues expanded -->
+                    <!-- DOC: Set data-auto-speed="200" to adjust the sub menu slide up/down speed -->
+                    <ul class="page-sidebar-menu   " data-keep-expanded="false" data-auto-scroll="true" data-slide-speed="200">
+                       
+                        
+                        <li class="heading">
+                            <h3 class="uppercase">القائمة</h3>
+                        </li>
+                       <li class="nav-item  ">
+                            <a href="?p=dashboard-2" class="nav-link nav-toggle">
+                                <i class="icon-home"></i>
+                                <span class="title">الرئيسية</span>
+                                <span class="arrow"></span>
+                            </a>
+                            <ul class="sub-menu">
+                                
+                                <li class="nav-item  ">
+                                    <a href="javascript:;" class="nav-link nav-toggle">
+                                        <i class="icon-bar-chart"></i>
+                                        <span class="title">التطبيقات</span>
+                                        <span class="arrow"></span>
+                                    </a>
+                                    <ul class="sub-menu">
+                    {% set font_awesome_icons = ["icon-tag","icon-pencil","icon-graph","icon-map","icon-energy","icon-globe"] %}
+                {% set forms = frappe.get_list("Web Form", fields=["*"] , filters = {'published':1},ignore_permissions=True) %}
+                                         {% for form in forms %}
+                                        <li class="nav-item ">
+                                            <a href="/portal/portal?doc={{ form['name'] }}" class="nav-link "> 
+                                            {{ _(form['title']) }} </a>
+                                        </li>
+                                        {% endfor %}
+                                        
+                                    </ul>
+                                </li>
+
+                                <li class="nav-item  ">
+                                    <a href="javascript:;" class="nav-link nav-toggle">
+                                    <i class="icon-bulb"></i>
+                                        <span class="title">الرسومات</span>
+                                        <span class="arrow"></span>
+                                    </a>
+                                    <ul class="sub-menu">
+                                        <li class="nav-item">
+                        <a href="/portal/chart?type=leave" class="nav-link">
+                            <i class="icon-tag"></i> نوع الاجازة</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="/portal/chart?type=persistence" class="nav-link">
+                            <i class="icon-pencil"></i> الحضور</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="/portal/chart?type=permission" class="nav-link">
+                            <i class="icon-graph"></i> الاذونات</a>
+                    </li>
+                                    </ul>
+                                </li>
+
+                                <li class="nav-item  ">
+                                    <a href="/desk" class="nav-link nav-toggle">
+                                    <i class="icon-graph"></i>
+                                        <span class="title">سطح المكتب</span>
+                                    </a>
+                                    
+                                </li>
+                                
+                            </ul>
+                        </li>
+
+
+
+                       
+                    
+                      
+                    </ul>
+                    <!-- END SIDEBAR MENU -->
+                </div>
+                <!-- END SIDEBAR -->
+            </div>
+            <!-- END SIDEBAR -->

@@ -1,0 +1,81 @@
+{% extends "templates/web2.html" %}
+
+
+{% block page_content %}
+<div class="container" >
+    <div class="row" style="margin-top: 65px;">
+    <ol class="breadcrumb">
+      <li><a href="/e-portal">{{_("Home") }}</a></li>
+      <li><a class="active">{{_("Applications") }}</a></li>
+        <li><a href="/e-portal/charts">{{_("Charts") }}</a></li>
+    </ol>
+    <input type="hidden" name="chart_type" id="chart_type" value="{{ chart_type }}">
+        <div class="">
+            <div class="">
+                <div class="panel panel-body">
+                    <form class="form-inline" id="form">
+
+                    {% for fillter in filters %}
+                        <div class="form-group">
+                            <label class="sr-only1" for="fiscal_year_name">{{ fillter['name'] }}</label>
+
+                            <select name="{{ fillter['key'] }}" id="{{ fillter['key'] }}" class="form-control">
+
+                            {% for value in fillter['values']%}
+                                <option value="{{ value.name }}">{{ _(value.title) or value.leave_type_name or  _(value.name) }}</option>
+
+                            {% endfor %}
+
+                            </select>
+                        </div>
+                    {% endfor %}
+
+                    {% if is_system_manager %}
+
+                        <div class="form-group">
+                            <label class="sr-only1" for="employee">{{_("Employee") }}</label>
+                            <select name="employee_name" id="employee_name" class="form-control">
+                                <option ></option>
+                                {% for d in employees %}
+                                    <option value="{{ d.name }}">{{ d.employee_name or d.name }}</option>
+                                {% endfor %}
+                            </select>
+                        </div>
+                    {% endif %}
+
+                        <button type="submit" class="btn btn-primary" id="draw-data">عرض</button>
+                    </form>
+                </div>
+            <div class="row">
+            <div class="col-md-6 col-xs-12">
+                <div class="x_panel">
+                  <div class="x_content">
+
+                    <div id="echart_donut" style="height:350px;"></div>
+
+                  </div>
+                </div>
+              </div>
+                <div class="col-md-2 col-xs-12">
+                <div class="x_panel">
+                  <div class="x_content">
+
+                    <h4>
+{{_("Total") }}
+                    </h4>
+                    <div id="totals" style="border-bottom: 1px solid rgba(0, 0, 0, 0.23)"></div>
+
+                  </div>
+                </div>
+
+                </div>
+            </div>
+
+
+            </div>
+
+        </div>
+    </div>
+</div>
+
+{% endblock %}

@@ -1,0 +1,63 @@
+.erpnext-icon {
+    width: 100px;
+}
+
+
+.calendars-popup{
+    z-index: 5000000000000!important;
+}
+
+
+
+body[data-route=""] .navbar-default,
+body[data-route="desktop"] .navbar-default,
+.navbar-default {
+  background-color: #35414B;
+  border-color:  #35414B;
+}
+#page-desktop{
+	background-color: #eee !important;
+}
+
+img.erpnext-icon{
+
+	width: 50px;
+	/*border: 1px solid #eee;*/
+	border-radius: 5px;
+	margin-bottom: 50px;
+}
+
+.nav.navbar-nav.navbar-right .dropdown-help{
+  display:none !important;
+}
+
+[data-name="Explore"]{
+	display: none;
+}
+
+
+.navbar-nav>li>.dropdown-menu li:nth-child(4){
+	display: none;
+}
+input[type="checkbox"] {
+  /*visibility: visible;*/
+  position: relative;
+    top: -2px;
+}
+
+input[type="checkbox"]:before {
+    visibility: visible;
+        content: '\f096';
+
+
+}
+.page-form .checkbox input {
+margin-top: 5px !important;
+}
+.disabled-check {
+    margin-right: 14px;
+   }
+
+.fa-square:before {
+    margin-right: -34px !important;
+}

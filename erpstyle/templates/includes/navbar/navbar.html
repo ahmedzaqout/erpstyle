@@ -1,0 +1,153 @@
+    <!-- StyleSheets -->
+   
+
+</script>
+      <!-- start: TOP BAR -->
+      <style type="text/css">
+         
+    
+
+
+
+    .navbar-default .navbar-nav > .activat:hover > a:before {
+    content: "\f0d8";
+    display: inline-block;
+    font-family: FontAwesome;
+    position: absolute;
+    text-align: center;
+    bottom: 2px;
+    width: 100%;
+    right: 0;
+    line-height: 0;
+
+  }
+
+  .navbar-default .navbar-nav>.activat:hover>a{
+        background-color: #e7e7e7;
+
+  }
+
+  .navbar-default .navbar-nav > .activat:hover > a:before {
+    color: #007AFF;
+
+      </style>
+<header>
+      <div class="clearfix " id="topbar">
+        <div class="container">
+          <div class="row">
+            <div class="col-sm-6">
+              <!-- start: TOP BAR CALL US -->
+              <div class="callus">
+                اتصل بنا:
+                <a href="mailto:info@tayseer-tech.com.sa">
+                  info@tayseer-tech.com.sa
+                </a>
+              </div>
+              <!-- end: TOP BAR CALL US -->
+            </div>
+            <div class="col-sm-6">
+              <!-- start: TOP BAR SOCIAL ICONS -->
+              <div class="social-icons">
+                <ul>
+                  <li class="social-twitter tooltips" data-original-title="Twitter" data-placement="bottom">
+                    <a target="_blank" href="http://www.twitter.com">
+                      Twitter
+                    </a>
+                  </li>
+                  <li class="social-facebook tooltips" data-original-title="Facebook" data-placement="bottom">
+                    <a target="_blank" href="http://facebook.com">
+                      Facebook
+                    </a>
+                  </li>
+                  <li class="social-google tooltips" data-original-title="Google" data-placement="bottom">
+                    <a target="_blank" href="http://google.com">
+                      Google+
+                    </a>
+                  </li>
+                  <li class="social-linkedin tooltips" data-original-title="LinkedIn" data-placement="bottom">
+                    <a target="_blank" href="http://linkedin.com">
+                      LinkedIn
+                    </a>
+                  </li>
+                  <li class="social-youtube tooltips" data-original-title="YouTube" data-placement="bottom">
+                    <a target="_blank" href="http://youtube.com/">
+                      YouTube
+                    </a>
+                  </li>
+
+                </ul>
+              </div>
+              <!-- end: TOP BAR SOCIAL ICONS -->
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- end: TOP BAR -->
+      <div role="navigation" class="navbar navbar-default navbar-fixed-top space-top">
+        <!-- start: TOP NAVIGATION CONTAINER -->
+        <div class="container">
+          <div class="navbar-header">
+            <!-- start: RESPONSIVE MENU TOGGLER -->
+            <button data-target=".navbar-collapse" data-toggle="collapse" class="navbar-toggle" type="button">
+              <span class="sr-only">تصفح</span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </button>
+            <!-- end: RESPONSIVE MENU TOGGLER -->
+            <!-- start: LOGO -->
+            <a class="navbar-brand" href="index.php">
+              <img border="0" src="../assets/erpstyle/images/logo.png">
+            </a>
+            <!-- end: LOGO -->
+          </div>
+          <div class="navbar-collapse collapse">
+            <ul class="nav navbar-nav navbar-right">
+              <li class="active">
+                <a href="index.html">
+                  الرئيسية
+                </a>
+              </li>
+            {% if not hide_about %}
+            <li class="activat"><a href="/about">{{ _("نحن") }}</a></li>
+             {% endif %}
+
+             {% if not hide_contact %}
+            <li class="activat"><a href="/contact">{{ _("تواصل") }}</a></li>
+             {% endif %}
+
+             {% if not hide_login %}
+            <li class="activat"><a href="/login_erp">{{ _("تسجيل نظام جديد") }}</a></li>
+             {% endif %}
+              <li class="menu-search">
+                <!-- start: SEARCH BUTTON -->
+                <a href="#" data-placement="bottom" data-toggle="popover">
+                  <i class="clip-search-3"></i>
+                </a>
+                <!-- end: SEARCH BUTTON -->
+                <!-- start: SEARCH POPOVER -->
+                <div class="popover bottom search-box">
+                  <div class="arrow"></div>
+                  <div class="popover-content">
+                    <!-- start: SEARCH FORM -->
+                    <form class="" id="searchform" action="#">
+                      <div class="input-group">
+                        <input type="text" class="form-control" placeholder="بحث">
+                        <span class="input-group-btn">
+                          <button class="btn btn-main-color btn-squared" type="button">
+                            <i class="clip-search-3"></i>
+                          </button> </span>
+                      </div>
+                    </form>
+                    <!-- end: SEARCH FORM -->
+                  </div>
+                </div>
+                <!-- end: SEARCH POPOVER -->
+              </li>
+            </ul>
+          </div>
+        </div>
+        <!-- end: TOP NAVIGATION CONTAINER -->
+      </div>
+    <!-- end: HEADER -->
+</header>

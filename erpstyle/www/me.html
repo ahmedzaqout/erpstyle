@@ -1,0 +1,126 @@
+{% extends "templates/master.html" %}
+	{% block title %}{{ _("My Account") }}{% endblock %}
+
+
+{% block content %}
+<div class="row">
+                        <div class="col-md-12">
+                            <!-- BEGIN PROFILE SIDEBAR -->
+                            <div class="profile-sidebar">
+                                <!-- PORTLET MAIN -->
+                                <div class="portlet light profile-sidebar-portlet bordered">
+                                    <!-- SIDEBAR USERPIC -->
+                                     {% set user_doc = frappe.get_doc("User", frappe.user) %}
+                                    {% if user_doc and user_doc.name != 'Guest'%}
+                                   
+
+                                    {% if user_doc.user_image %}
+                                    <div class="profile-userpic">
+                                        <img src="{{user_doc.user_image}}" class="img-responsive" alt=""> </div>
+
+                                        {% else %}
+
+				<i class="fa fa-user img-circle" style="margin-right: 128px;font-size: 46px;"></i> </a>
+					{% endif %}
+					{% endif %}
+                                    <!-- END SIDEBAR USERPIC -->
+                                    <!-- SIDEBAR USER TITLE -->
+                                   
+                                    <div class="profile-usertitle">
+                                        <div class="profile-usertitle-name"> {{ frappe.user }} </div>
+
+
+                                    </div>
+                                    <!-- END SIDEBAR USER TITLE -->
+                                    <!-- SIDEBAR BUTTONS -->
+                                    <div class="profile-userbuttons">
+                                        <button type="button" class="btn btn-circle green btn-sm">متابعة</button>
+                                        <button type="button" class="btn btn-circle red btn-sm">مراسلة</button>
+                                    </div>
+                                    <!-- END SIDEBAR BUTTONS -->
+                                    <!-- SIDEBAR MENU -->
+                                    <div class="profile-usermenu">
+                                        <ul class="nav">
+                                            <li>
+                                                <a href="/portal">
+                                                    <i class="icon-home"></i> الصفحة الرئيسية </a>
+                                            </li>
+                                            <li class="active">
+                                                <a href="edit-profile?name={{frappe.user}}">
+                                                    <i class="icon-settings"></i> اعدادات المستخدم </a>
+                                            </li>
+                                            
+                                        </ul>
+                                    </div>
+                                    <!-- END MENU -->
+                                </div>
+                                <!-- END PORTLET MAIN -->
+                                <!-- PORTLET MAIN -->
+                             
+                                <!-- END PORTLET MAIN -->
+                            </div>
+                            <!-- END BEGIN PROFILE SIDEBAR -->
+                            <!-- BEGIN PROFILE CONTENT -->
+                            <div class="profile-content">
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <div class="portlet light bordered">
+                                            <div class="portlet-title tabbable-line">
+                                                
+                                                    <div class="profile-usertitle">
+                                        <div class="profile-usertitle-name"> {{ _("المعلومات الأساسية") }} </div>
+                                         </div>
+
+                                                
+                                                
+                                            </div>
+                                            <div class="portlet-body">
+                                                <div class="tab-content">
+                                                    <!-- PERSONAL INFO TAB -->
+                                                        
+                                                   
+                                                    <form  role="form" action="">
+                                                            <div class="form-group">
+                                                                <label class="control-label">الاسم الأول</label>
+                                                                <input type="text" placeholder="{{user_doc.first_name}}" class="form-control"> </div>
+
+                                                            <div class="form-group">
+                                                                <label class="control-label">الاسم الوسط</label>
+                                                                <input type="text" class="input-with-feedback form-control" maxlength="140" data-fieldtype="Data" data-fieldname="middle_name" placeholder="{{user_doc.middle_name}}" data-doctype="User" class="form-control"> </div> 
+
+
+                                                            <div class="form-group">
+                                                                <label class="control-label">الاسم الأخير</label>
+                                                                <input type="text" placeholder="{{user_doc.last_name}}" class="form-control"> </div>    
+                                
+                                                            <div class="form-group">
+                                                                <label class="control-label">رقم الموبايل</label>
+                                                                <input type="text" placeholder="{{user_doc.phone}}" class="form-control"> </div>
+                                                            
+                                                            <div class="form-group">
+                                                                <label class="control-label">عن</label>
+                                                                <textarea class="form-control" rows="3" placeholder="{{user_doc.bio}}"></textarea>
+                                                            </div>
+                                                            <div class="form-group">
+                                                                <label class="control-label">عنوان الموقع</label>
+                                                                <input type="text" placeholder="{{user_doc.location}}" class="form-control"> </div>
+                                                           
+                                                        </form>
+
+
+                                                    <!-- END PERSONAL INFO TAB -->
+                                                    <!-- CHANGE AVATAR TAB -->
+                                                   
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- END PROFILE CONTENT -->
+                        </div>
+                    </div>
+<!-- no-cache -->
+
+{% endblock %}
+

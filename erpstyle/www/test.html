@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<!-- Bui
+lt on Frappe. https://frappe.io/ -->
+<html lang="en">
+<head>
+
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+  <script>
+    window.frappe = {};
+    frappe.ready_events = [];
+    frappe.ready = function(fn) {
+      frappe.ready_events.push(fn);
+    }
+    window.dev_server = {{ dev_server }};
+    </script>
+</head>
+<body >
+
+
+
+  <!-- Content -->
+  <div class="container" id="content">
+
+
+         <form role="form" id="test_form" class="contact-form" method="Post">
+                <ul class="row">
+
+
+
+
+                  <li class="col-sm-12">
+                    <button type="submit"  class="btn btn-success btn-lg pull-right" style= "margin-top: 10px;" >اشترك الآن </button>
+                  </li>
+                </ul>
+
+              </form>
+            </div>
+
+
+
+
+</body>
+</html>
+
+
